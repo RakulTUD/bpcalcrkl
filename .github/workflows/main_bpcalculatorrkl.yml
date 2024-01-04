@@ -3,10 +3,6 @@
 
 name: Build and deploy ASP.Net Core app to Azure Web App - bpcalculatorrkl
 
-env:
-  AZURE_WEBAPP_NAME: bpcalculatorrkl            # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'              # set this to the path to your web app project
-
 on:
   push:
     branches:
@@ -55,7 +51,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          app-name: 'bpcalculatorrkl'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: '${{env.DOTNET_ROOT}}/myapp'
+          package: .
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EEF3721A94FA4B4585EB3C7D05733B98 }}
