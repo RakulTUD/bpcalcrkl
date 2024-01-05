@@ -11,7 +11,7 @@ namespace SeleniumTest
     [TestClass]
     public class SeleniumTest
     {
-       // String test_url = "http://localhost:53135/";
+       String test_url = "https://rakultudbpcalculator.azurewebsites.net/";
         String HBP = "High Blood Pressure";
         String PHBP = "Pre-High Blood Pressure";
         String IBP= "Ideal Blood Pressure";
@@ -36,7 +36,7 @@ namespace SeleniumTest
             // Local Selenium WebDriver
            // driver = new ChromeDriver(@"C:\Users\CS2110TX\Downloads\chromedriver.exe");
 
-            driver.Navigate().GoToUrl("https://rakultudbpcalculator.azurewebsites.net/");
+            driver.Navigate().GoToUrl(test_url);
 
             // get systolic value in element
             IWebElement systolicPressure = driver.FindElement(By.Id("BP_Systolic"));
