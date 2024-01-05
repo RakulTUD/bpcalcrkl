@@ -77,4 +77,11 @@ jobs:
             name: DotNET Tests
             path: "**/SeleniumTests.trx"                            
             reporter: dotnet-trx
-            fail-on-error: true
+            fail-on-error: true      
+
+      - name: Install csc.exe
+        run: |
+              Invoke-Expression "& { & $env:WINDIR\System32\cmd.exe /c choco install --yes dotnet-sdk }"
+
+      - name: Check file path errors
+        run: csc -verify:partial SeleniumTest.cs
