@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPCalculatorUnitTests", "BP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumBpTestRuns", "SeleniumBpTestRuns\SeleniumBpTestRuns.csproj", "{60BE5919-A7B8-4AFA-B321-F45C8EA0063B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowProject1", "SpecFlowProject1\SpecFlowProject1.csproj", "{3BC833B3-2EED-413D-8B1E-B9B94B4FB9DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowProject1", "SpecFlowProject1\SpecFlowProject1.csproj", "{3BC833B3-2EED-413D-8B1E-B9B94B4FB9DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

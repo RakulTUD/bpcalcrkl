@@ -3,6 +3,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
+using WebDriverManager.DriverConfigs.Impl;
+
 
 namespace SeleniumTest
 {
@@ -21,10 +23,20 @@ namespace SeleniumTest
         {
             IWebDriver driver;
 
-            // Local Selenium WebDriver
-            driver = new ChromeDriver(@"C:\Users\CS2110TX\Downloads\chromedriver.exe");
+            driver = new ChromeDriver();
+            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
 
-            driver.Navigate().GoToUrl(test_url);
+            var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
+            driver = new ChromeDriver(driverPath);
+
+           // driver = new ChromeDriver();
+
+
+
+            // Local Selenium WebDriver
+           // driver = new ChromeDriver(@"C:\Users\CS2110TX\Downloads\chromedriver.exe");
+
+            driver.Navigate().GoToUrl("https://rakultudbpcalculator.azurewebsites.net/");
 
             // get systolic value in element
             IWebElement systolicPressure = driver.FindElement(By.Id("BP_Systolic"));
