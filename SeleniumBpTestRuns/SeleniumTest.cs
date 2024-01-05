@@ -27,7 +27,7 @@ namespace SeleniumTest
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
 
             //var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
-            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\Drivers");
+            // driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\Drivers");
 
            // driver = new ChromeDriver();
 
