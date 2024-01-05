@@ -27,7 +27,7 @@ namespace SeleniumTest
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
 
             //var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
-            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\Drivers\\chromedriver.exe");
+            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\Drivers");
 
            // driver = new ChromeDriver();
 
@@ -86,7 +86,7 @@ namespace SeleniumTest
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
 
             //var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
-            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\SeleniumBpTestRuns\\Drivers\\chromedriver.exe");
+            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\SeleniumBpTestRuns\\Drivers");
 
             driver.Navigate().GoToUrl(test_url);
 
@@ -130,7 +130,7 @@ namespace SeleniumTest
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
 
             //var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
-            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\SeleniumBpTestRuns\\Drivers\\chromedriver.exe");
+            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\SeleniumBpTestRuns\\Drivers");
 
             driver.Navigate().GoToUrl(test_url);
 
@@ -174,7 +174,7 @@ namespace SeleniumTest
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
 
             //var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
-            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\SeleniumBpTestRuns\\Drivers\\chromedriver.exe");
+            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\SeleniumBpTestRuns\\Drivers");
 
             driver.Navigate().GoToUrl(test_url);
 
