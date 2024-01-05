@@ -11,7 +11,7 @@ namespace SeleniumTest
     [TestClass]
     public class SeleniumTest
     {
-        String test_url = "http://localhost:53135/";
+       // String test_url = "http://localhost:53135/";
         String HBP = "High Blood Pressure";
         String PHBP = "Pre-High Blood Pressure";
         String IBP= "Ideal Blood Pressure";
@@ -26,8 +26,8 @@ namespace SeleniumTest
             driver = new ChromeDriver();
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
 
-            var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
-            driver = new ChromeDriver("D:\a\bpcalcrkl\bpcalcrkl\Drivers\chromedriver.exe");
+            //var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
+            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\Drivers\\chromedriver.exe");
 
            // driver = new ChromeDriver();
 
