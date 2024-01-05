@@ -80,10 +80,13 @@ namespace SeleniumTest
         [TestMethod]
         public void PHBPCategory()
         {
-            IWebDriver driver;
+             IWebDriver driver;
 
-            // Local Selenium WebDriver
-            driver = new ChromeDriver(@"C:\Users\CS2110TX\Downloads\chromedriver.exe");
+            driver = new ChromeDriver();
+            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+
+            //var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
+            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\SeleniumBpTestRuns\\Drivers\\chromedriver.exe");
 
             driver.Navigate().GoToUrl(test_url);
 
@@ -121,10 +124,13 @@ namespace SeleniumTest
         [TestMethod]
         public void IBPCategory()
         {
-            IWebDriver driver;
+             IWebDriver driver;
 
-            // Local Selenium WebDriver
-            driver = new ChromeDriver(@"C:\Users\CS2110TX\Downloads\chromedriver.exe");
+            driver = new ChromeDriver();
+            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+
+            //var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
+            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\SeleniumBpTestRuns\\Drivers\\chromedriver.exe");
 
             driver.Navigate().GoToUrl(test_url);
 
@@ -162,10 +168,13 @@ namespace SeleniumTest
         [TestMethod]
         public void LBPCategory()
         {
-            IWebDriver driver;
+             IWebDriver driver;
 
-            // Local Selenium WebDriver
-            driver = new ChromeDriver(@"C:\Users\CS2110TX\Downloads\chromedriver.exe");
+            driver = new ChromeDriver();
+            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+
+            //var driverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Drivers");
+            driver = new ChromeDriver("D:\\a\\bpcalcrkl\\bpcalcrkl\\SeleniumBpTestRuns\\Drivers\\chromedriver.exe");
 
             driver.Navigate().GoToUrl(test_url);
 
