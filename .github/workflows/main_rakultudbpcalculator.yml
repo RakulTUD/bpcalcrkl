@@ -37,21 +37,6 @@ jobs:
             reporter: dotnet-trx
             fail-on-error: true
             
-      - name: Publish BDD Test Results
-        uses: EnricoMi/publish-unit-test-result-action/composite@v2
-        if: always()
-        with:
-            files: |
-              test-results/**/SpecFlowProject1.trx
-              
-      - name: Publish BDD test results
-        uses: dorny/test-reporter@v1
-        with:
-         artifact: ''                                       
-         name: BDDTest                                  
-         path: TestResults/SpecFlowProject1.trx                                   
-         reporter: 'dotnet-trx'                             
-     
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
