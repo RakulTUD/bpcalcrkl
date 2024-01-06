@@ -69,6 +69,12 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6A678548496F4F8080F93F8A1F9DB9FD }}
       - name: Run selenium Tests
         run: dotnet test ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}SeleniumBpTestRuns.dll --logger:"trx;LogFileName=SeleniumTests.trx"
+
+      - uses: actions/upload-artifact@v3
+        with:
+         name: Selenium Tests Results
+         path: TestResults/selenium.trx
+
         
       - name: Publish SeleniumTest Report
         uses: dorny/test-reporter@v1
