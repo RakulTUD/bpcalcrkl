@@ -25,7 +25,7 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
       
-      - name: Run dotnet UniTests 
+      - name: Run dotnet UnitTests 
         run: dotnet test .\BPCalculatorUnitTests\BPCalculatorUnitTests.csproj --configuration Release --no-build --verbosity normal --collect "Code Coverage" --logger "trx;logfilename=UnittestResults.trx"
       
       - name: Pubilsh UnitTest Report
@@ -36,7 +36,22 @@ jobs:
             path: "**/UnittestResults.trx"                            
             reporter: dotnet-trx
             fail-on-error: true
-      
+            
+      - name: Publish BDD Test Results
+        uses: EnricoMi/publish-unit-test-result-action/composite@v2
+        if: always()
+        with:
+            files: |
+              test-results/**/SpecFlowProject1.trx
+              
+      - name: Publish BDD test results
+        uses: dorny/test-reporter@v1
+        with:
+         artifact: ''                                       
+         name: BDDTest                                  
+         path: TestResults/SpecFlowProject1.trx                                   
+         reporter: 'dotnet-trx'                             
+     
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
@@ -75,22 +90,4 @@ jobs:
          name: Selenium Tests Results
          path: TestResults/SeleniumTests.trx     
 
-      - name: SpecFlowBDDTest
-        run: dotnet test ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}SpecFlowProject1.dll --logger:"trx;LogFileName=SpecFlowProject1.trx"
-
-      - name: Publish BDD test results
-        uses: dorny/test-reporter@v1
-        with:
-         artifact: ''                                       
-         name: BDDTest                                  
-         path: '**.trx'                                     
-         reporter: 'dotnet-trx'                             
-
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
-        with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+      
