@@ -73,14 +73,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
          name: Selenium Tests Results
-         path: TestResults/selenium.trx
-
-        
-      - name: Publish SeleniumTest Report
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-            name: DotNET Tests
-            path: "**/SeleniumTests.trx"                            
-            reporter: dotnet-trx
-            fail-on-error: true      
+         path: TestResults/SeleniumTests.trx     
