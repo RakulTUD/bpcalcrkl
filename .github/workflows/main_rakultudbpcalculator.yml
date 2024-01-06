@@ -46,6 +46,18 @@ jobs:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
 
+      - name: Run BDD Test
+        run: dotnet test .\SpecFlowProject1\SpecFlowProject1.csproj --configuration Release --no-build --verbosity normal --collect "Code Coverage" --logger "trx;logfilename=SpecFlowProject1.trx"
+     
+      - name: Publish BDD Test Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+            name: DotNET Tests
+            path: "**/SpecFlowProject1.trx"                            
+            reporter: dotnet-trx
+            fail-on-error: true
+
   deploy:
     runs-on: windows-latest
     needs: build
