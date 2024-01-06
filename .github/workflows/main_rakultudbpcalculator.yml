@@ -74,3 +74,23 @@ jobs:
         with:
          name: Selenium Tests Results
          path: TestResults/SeleniumTests.trx     
+
+      - name: SpecFlowBDDTest
+        run: dotnet test SpecFlowProject1\SpecFlowProject1.csproj --collect "Code Coverage" -l:trx
+
+      - name: Publish UAT test results
+        uses: dorny/test-reporter@v1
+        with:
+         artifact: ''                                       
+         name: BDDTest                                  
+         path: '**.trx'                                     
+         reporter: 'dotnet-trx'                             
+
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
