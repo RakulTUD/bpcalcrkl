@@ -76,9 +76,9 @@ jobs:
          path: TestResults/SeleniumTests.trx     
 
       - name: SpecFlowBDDTest
-        run: dotnet test SpecFlowProject1\SpecFlowProject1.csproj --collect "Code Coverage" -l:trx
+        run: dotnet test ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}SpecFlowProject1.dll --logger:"trx;LogFileName=SpecFlowProject1.trx"
 
-      - name: Publish UAT test results
+      - name: Publish BDD test results
         uses: dorny/test-reporter@v1
         with:
          artifact: ''                                       
