@@ -27,7 +27,6 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu' # Alternative distribution options are available.
-          cache: 'zulu-cache' # Optional. Caches to ~/Library/Caches/com.github.actions.setup-java on macOS or C:\Users\runneradmin\AppData\Local\Temp\setup-java on Windows
       
       - uses: actions/checkout@v3
         with:
