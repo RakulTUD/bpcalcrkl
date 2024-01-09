@@ -62,11 +62,11 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"RakulTUD_bpcalcrkl" /o:"rakultud" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"  /d:sonar.cs.opencover.reportsPaths=coverage.xml
           dotnet build --configuration Release
-          C:\tools\opencover\OpenCover.Console.exe -target:"dotnet.exe" 
-          -targetargs:"test --no-build"
-          -returntargetcode
-          -output:coverage.xml
-          -register:user
+          coverlet .\CovExample.Tests\bin\Debug\net6.0\CovExample.Tests.dll
+            --target "dotnet" 
+            --targetargs "test --no-build"
+            -f=opencover 
+            -o="coverage.xml"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
       
       - name: Run dotnet UnitTests 
