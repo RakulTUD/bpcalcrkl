@@ -62,6 +62,7 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"RakulTUD_bpcalcrkl" /o:"rakultud" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"  /d:sonar.cs.opencover.reportsPaths=coverage.xml
           dotnet build --configuration Release
+          dotnet tool install --global coverlet.console
           coverlet .\CovExample.Tests\bin\Debug\net6.0\CovExample.Tests.dll
               -target "dotnet" 
               -targetargs "test --no-build"
