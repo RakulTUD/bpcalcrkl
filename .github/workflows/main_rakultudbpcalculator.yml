@@ -141,9 +141,9 @@ jobs:
           cloud: true
           token: ${{ secrets.K6_CLOUD_API_TOKEN }}
  
-  CanaryDeployment:
-        runs-on: windows-latest
-        needs: LoadTest
+ # CanaryDeployment:
+ #       runs-on: windows-latest
+  #      needs: LoadTest
         #steps:
         #- name: Azure Login
          # uses: Azure/login@v1
