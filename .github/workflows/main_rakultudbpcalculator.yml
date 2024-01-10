@@ -122,7 +122,13 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6A678548496F4F8080F93F8A1F9DB9FD }}
       - name: Run selenium Tests
         run: dotnet test ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}SeleniumBpTestRuns.dll --logger:"trx;LogFileName=SeleniumTests.trx"
-
+      
+      - name: Run k6 cloud test
+        uses: k6io/action@v0.1
+        with:
+          filename: K6Baseline.js
+          cloud: true
+          token: ${{ secrets.K6_CLOUD_API_TOKEN }}
       - uses: actions/upload-artifact@v3
         with:
          name: Selenium Tests Results
