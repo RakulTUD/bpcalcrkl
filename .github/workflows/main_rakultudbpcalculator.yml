@@ -140,3 +140,16 @@ jobs:
           filename: K6LoadTests/K6Baseline.js
           cloud: true
           token: ${{ secrets.K6_CLOUD_API_TOKEN }}
+  CanaryDeployment:
+        runs-on: windows-latest
+        needs: LoadTest
+        steps:
+        - name: Azure Login
+          uses: Azure/login@v1.5.1
+        # blue/green
+        #- name: set canary slot traffic
+        #  run: |
+         # az webapp traffic-routing set -g gcresourcegroup1 -n gc-bmicalculator-ga --action testing --distribution { "production": 90, "staging": 10 }
+          
+  
+        
